@@ -30,6 +30,7 @@ gem "jbuilder", "~> 2.5"
 gem "ragnarson-stylecheck"
 
 gem "bootstrap-sass"
+gem "slim-rails"
 
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development

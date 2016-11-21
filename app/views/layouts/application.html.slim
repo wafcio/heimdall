@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Heimdall
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_include_tag "application", "data-turbolinks-track": "reload"
+  body
+    nav.navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          = link_to root_path, class: "navbar-brand" do
+            | Heimdall
+    .container
+      = yield
