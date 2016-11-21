@@ -29,6 +29,8 @@ gem "jbuilder", "~> 2.5"
 
 gem "ragnarson-stylecheck"
 
+gem "bootstrap-sass"
+
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 
