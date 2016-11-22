@@ -1,0 +1,24 @@
+h1.page-header Users
+
+table.table.table-striped
+  thead
+    tr
+      th Id
+      th Name
+      th E-mail
+      th Admin
+  tbody
+    - users.each do |user|
+      tr
+        td= user.id
+        td= user.name
+        td= user.email
+        td
+          - if user == current_user
+            = user.admin?
+          - else
+            = link_to admin_user_path(user, user: { admin: !user.admin? }), method: :put do
+              - if user.admin?
+                i.fa.fa-toggle-off
+              - else
+                i.fa.fa-toggle-on

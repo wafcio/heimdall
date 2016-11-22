@@ -19,8 +19,8 @@ class FindOmniauthUser
 
   def user_attributes
     {
-      name: context[:info][:name],
-      email: context[:info][:email],
+      name:       context[:info][:name],
+      email:      context[:info][:email],
       google_uid: context[:uid]
     }
   end

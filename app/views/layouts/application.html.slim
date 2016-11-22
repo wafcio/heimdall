@@ -13,11 +13,16 @@ html
             | Heimdall
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
-            li
-              - if current_user
+            - if current_user
+              - if current_user.admin?
+                li
+                  = link_to admin_users_path do
+                    i class="fa fa-gear"
+              li
                 = link_to sign_out_path do
                   i class="fa fa-sign-out"
-              - else
+            - else
+              li
                 = link_to omniauth_path(:google_oauth2) do
                   i class="fa fa-sign-in"
     .container
