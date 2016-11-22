@@ -28,7 +28,11 @@ gem "jbuilder", "~> 2.5"
 # gem "bcrypt", "~> 3.1.7"
 
 gem "bootstrap-sass"
+gem "font-awesome-rails"
 gem "slim-rails"
+
+gem "interactor-rails"
+gem "omniauth-google-oauth2"
 
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development

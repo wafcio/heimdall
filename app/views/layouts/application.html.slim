@@ -11,5 +11,14 @@ html
         .navbar-header
           = link_to root_path, class: "navbar-brand" do
             | Heimdall
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              - if current_user
+                = link_to sign_out_path do
+                  i class="fa fa-sign-out"
+              - else
+                = link_to omniauth_path(:google_oauth2) do
+                  i class="fa fa-sign-in"
     .container
       = yield
