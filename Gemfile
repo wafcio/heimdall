@@ -31,8 +31,11 @@ gem "bootstrap-sass"
 gem "font-awesome-rails"
 gem "slim-rails"
 
+gem "awesome_nested_set"
+gem "carrierwave-postgresql"
 gem "interactor-rails"
 gem "omniauth-google-oauth2"
+gem "postgresql_lo_streamer"
 
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development

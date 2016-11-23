@@ -1,0 +1,16 @@
+= form_for category do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+    - if category.errors[:name].any?
+      .has-error
+        span class="help-block"= category.errors[:name].join(", ")
+  - if category.image.url
+    .form-group
+      = f.label :current_image
+      div
+        = image_tag(category.image)
+  .form-group
+    = f.label :image
+    = f.file_field :image, class: "form-control"
+  = f.submit class: "btn btn-primary"

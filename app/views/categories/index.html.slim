@@ -1,0 +1,23 @@
+h1.page-header
+  | Categories&nbsp;
+  = link_to "New category", new_category_path, class: "btn btn-primary btn-sm"
+
+table.table.table-striped
+  thead
+    tr
+      th Id
+      th Name
+      th Image
+      th
+        .pull-right Action
+  tbody
+    - categories.each do |category|
+      tr
+        td= category.id
+        td= category.name
+        td= image_tag(category.image, width: 32)
+        td
+          .pull-right
+            = link_to "Edit", edit_category_path(category), class: "btn btn-default"
+            | &nbsp;
+            = link_to "Delete", category_path(category), class: "btn btn-danger", method: :delete

@@ -16,8 +16,11 @@ html
             - if current_user
               - if current_user.admin?
                 li
+                  = link_to categories_path do
+                    i class="fa fa-tags"
+                li
                   = link_to admin_users_path do
-                    i class="fa fa-gear"
+                    i class="fa fa-users"
               li
                 = link_to sign_out_path do
                   i class="fa fa-sign-out"
@@ -26,4 +29,5 @@ html
                 = link_to omniauth_path(:google_oauth2) do
                   i class="fa fa-sign-in"
     .container
+      = render "shared/flash"
       = yield

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :update]
   end
+  resources :categories, except: [:show]
+
+  mount PostgresqlLoStreamer::Engine => "/category_image"
 
   match "/auth/:provider" => "omniauth_callbacks#passthru", via: [:get, :post], as: :omniauth
   match "/auth/:provider/callback" => "omniauth_callbacks#callback", via: [:get, :post]
