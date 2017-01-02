@@ -1,0 +1,26 @@
+= form_for point do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+    - if point.errors[:name].any?
+      .has-error
+        p.help-block= point.errors[:name].first
+
+  .form-group
+    input#autocomplete
+    #map
+
+  = f.hidden_field :street_name, class: "form-control", data: { address: "route" }
+  = f.hidden_field :street_number, class: "form-control", data: { address: "street_number" }
+  = f.hidden_field :zip_code, class: "form-control", data: { address: "postal_code" }
+  = f.hidden_field :city, class: "form-control", data: { address: "locality" }
+  = f.hidden_field :state, class: "form-control", data: { address: "administrative_area_level_1" }
+  = f.hidden_field :country, class: "form-control", data: { address: "country" }
+  = f.hidden_field :latitude, data: { address: "latitude" }
+  = f.hidden_field :longitude, data: { address: "longitude" }
+  .actions
+    = f.submit class: "btn btn-primary"
+    | &nbsp;
+    = link_to "Back", points_path, class: "btn btn-default"
+
+script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAPS_API"]}&libraries=places&callback=initMarkerMap" async="" defer=""

@@ -1,0 +1,7 @@
+.container
+  h1.page-header
+    | Edit point
+    = " ##{point.id} "
+    = link_to "Back", points_path, class: "btn btn-default btn-sm"
+
+  = render "form", point: point

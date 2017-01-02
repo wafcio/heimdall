@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :update]
   end
   resources :categories, except: [:show]
+  resources :points
 
   mount PostgresqlLoStreamer::Engine => "/category_image"
 

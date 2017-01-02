@@ -1,0 +1,26 @@
+.container
+  = render "shared/flash"
+
+  h1.page-header
+    | Points&nbsp;
+    = link_to "New point", new_point_path, class: "btn btn-primary btn-sm"
+
+  table.table.table-striped
+    thead
+      tr
+        th Id
+        th Name
+        th
+          .pull-right Action
+    tbody
+      - points.each do |point|
+        tr
+          td= point.id
+          td= point.name
+          td
+            .pull-right
+              = link_to "Show", point, class: "btn btn-default"
+              | &nbsp;
+              = link_to "Edit", edit_point_path(point), class: "btn btn-default"
+              | &nbsp;
+              = link_to "Delete", point_path(point), class: "btn btn-danger", method: :delete

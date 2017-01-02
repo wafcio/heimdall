@@ -1,0 +1,13 @@
+.container
+  h1.page-header
+    = "Point: #{point.name} "
+    = link_to "Back", points_path, class: "btn btn-default btn-sm"
+
+  dl
+    dt  Name
+    dl = point.name
+
+  dl
+    #simple-map data-lat=point.latitude data-lng=point.longitude
+
+script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAPS_API"]}&callback=initSimpleMap" async="" defer=""

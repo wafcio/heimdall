@@ -1,0 +1,6 @@
+.container
+  h1.page-header
+    | New point&nbsp;
+    = link_to "Back", points_path, class: "btn btn-default btn-sm"
+
+  = render "form", point: point

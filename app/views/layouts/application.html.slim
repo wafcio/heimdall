@@ -6,28 +6,5 @@ html
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload"
     = javascript_include_tag "application", "data-turbolinks-track": "reload"
   body
-    nav.navbar.navbar-inverse.navbar-static-top
-      .container
-        .navbar-header
-          = link_to root_path, class: "navbar-brand" do
-            = website_title
-        #navbar.navbar-collapse.collapse
-          ul.nav.navbar-nav.navbar-right
-            - if current_user
-              - if current_user.admin?
-                li
-                  = link_to categories_path do
-                    i class="fa fa-tags"
-                li
-                  = link_to admin_users_path do
-                    i class="fa fa-users"
-              li
-                = link_to sign_out_path do
-                  i class="fa fa-sign-out"
-            - else
-              li
-                = link_to omniauth_path(:google_oauth2) do
-                  i class="fa fa-sign-in"
+    = render "shared/nav"
     = yield
-
-    script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAPS_API"]}&callback=initMap"
