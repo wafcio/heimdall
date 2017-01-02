@@ -17,3 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.navbar.navbar-inverse.navbar-static-top {
+  margin-bottom: 0;
+}

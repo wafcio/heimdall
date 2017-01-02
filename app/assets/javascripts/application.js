@@ -14,4 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require underscore
+//= require gmaps/google
 //= require_tree .
+
+function initMap() {
+  $("#map").css({height: window.innerHeight - 51});
+
+  var map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 6,
+    center: {lat: 52.05, lng: 19.45}
+  });
+}

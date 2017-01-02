@@ -33,9 +33,11 @@ gem "slim-rails"
 
 gem "awesome_nested_set"
 gem "carrierwave-postgresql"
+gem "gmaps4rails"
 gem "interactor-rails"
 gem "omniauth-google-oauth2"
 gem "postgresql_lo_streamer"
+gem "underscore-rails"
 
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development

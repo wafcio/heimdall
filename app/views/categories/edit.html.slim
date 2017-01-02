@@ -1,6 +1,7 @@
-h1.page-header
-  | Edit category
-  = " ##{category.id} "
-  = link_to "Back", categories_path, class: "btn btn-default btn-sm"
+.container
+  h1.page-header
+    | Edit category
+    = " ##{category.id} "
+    = link_to "Back", categories_path, class: "btn btn-default btn-sm"
 
-= render "form", category: category
+  = render "form", category: category
