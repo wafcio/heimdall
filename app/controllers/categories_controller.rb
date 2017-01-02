@@ -43,6 +43,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.fetch(:category, {}).permit(:name, :image)
+    params.fetch(:category, {}).permit(:name, :image, :image_cache)
   end
 end

@@ -36,8 +36,8 @@ gem "carrierwave-postgresql"
 gem "gmaps4rails"
 gem "interactor-rails"
 gem "omniauth-google-oauth2"
-gem "postgresql_lo_streamer"
 gem "underscore-rails"
+gem "cloudinary"
 
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
@@ -47,6 +47,8 @@ group :development, :test do
   gem "byebug", platform: :mri
 
   gem "dotenv-rails"
+  gem "postgresql_lo_streamer"
+  gem "mini_magick"
 end
 
 group :development do

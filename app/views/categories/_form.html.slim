@@ -12,5 +12,6 @@
         = image_tag(category.image)
   .form-group
     = f.label :image
+    = f.hidden_field :image_cache
     = f.file_field :image, class: "form-control"
   = f.submit class: "btn btn-primary"
