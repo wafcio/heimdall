@@ -36,8 +36,13 @@ class CategoriesController < ApplicationController
 
   def destroy
     category = Category.find(params[:id])
-    category.destroy
-    redirect_to categories_url, notice: "Category destroyed"
+    if category.points.exists?
+      flash[:alert] = "Category cannot be destroyed"
+    else
+      flash[:notice] = "Category destroyed"
+      category.destroy
+    end
+    redirect_to categories_url
   end
 
   private

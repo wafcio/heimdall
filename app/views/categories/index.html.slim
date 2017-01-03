@@ -22,5 +22,6 @@
           td
             .pull-right
               = link_to "Edit", edit_category_path(category), class: "btn btn-default"
-              | &nbsp;
-              = link_to "Delete", category_path(category), class: "btn btn-danger", method: :delete
+              - unless category.points.exists?
+                | &nbsp;
+                = link_to "Delete", category_path(category), class: "btn btn-danger", method: :delete
