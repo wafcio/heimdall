@@ -7,5 +7,5 @@ class Category < ApplicationRecord
 
   scope :sort_by_name, -> { order(:name) }
 
-  validates :name, presence: true
+  validates :name, :image, presence: true
 end
