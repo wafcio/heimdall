@@ -42,14 +42,29 @@ function initMap() {
     };
 
     if (node.attr("data-marker") != "default")
-      markerData["icon"] = $("meta[name=baseUrl]").attr("content") + node.attr("data-marker");
+      if (node.attr("data-marker").startsWith("http")) {
+        markerData["icon"] = node.attr("data-marker");
+      } else {
+        markerData["icon"] = $("meta[name=baseUrl]").attr("content") + node.attr("data-marker");
+      }
 
     var marker = new google.maps.Marker(markerData);
 
     var content = "<strong style=\"border-bottom: 1px solid #eeeeee;\">" + node.attr("data-name") + "</strong><br>";
     $(".marker-image[data-point-id=" + node.attr("data-id") + "]").each(function(){
-      var imageNode = $(this);
-      content += "<a href=\"" + $("meta[name=baseUrl]").attr("content") + imageNode.attr("data-file") +"\" rel=\"lightbox\"><img src=\"" + $("meta[name=baseUrl]").attr("content") + imageNode.attr("data-file-small") +"\" /></a>"
+      var imageNode = $(this), bigImageUrl, smallImageUrl;
+      if (imageNode.attr("data-file").startsWith("http")) {
+        bigImageUrl = imageNode.attr("data-file");
+      } else {
+        bigImageUrl = $("meta[name=baseUrl]").attr("content") + imageNode.attr("data-file");
+      }
+      if (imageNode.attr("data-file-small").startsWith("http")) {
+        smallImageUrl = imageNode.attr("data-file-small");
+      } else {
+        smallImageUrl = $("meta[name=baseUrl]").attr("content") + imageNode.attr("data-file-small");
+      }
+
+      content += "<a href=\"" + bigImageUrl +"\" rel=\"lightbox\"><img src=\"" + smallImageUrl +"\" /></a>"
     });
 
     var infowindow = new google.maps.InfoWindow({
