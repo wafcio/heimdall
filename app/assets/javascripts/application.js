@@ -25,4 +25,26 @@ function initMap() {
     zoom: 6,
     center: {lat: 52.05, lng: 19.45}
   });
+
+  var markers = [];
+
+  $(".marker").each(function() {
+    var node = $(this);
+
+    var marker = new google.maps.Marker({
+      position: { lat: parseFloat(node.attr("data-lat")), lng: parseFloat(node.attr("data-lng")) },
+      map: map,
+      title: node.attr("data-name")
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: "<strong style=\"border-bottom: 1px solid #eeeeee;\">" + node.attr("data-name") + "</strong>"
+    });
+
+    marker.addListener("click", function() {
+      infowindow.open(map, marker);
+    });
+
+    markers.push(marker);
+  });
 }

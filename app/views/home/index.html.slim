@@ -1,2 +1,4 @@
 div#map style="width: auto; height: 400px;"
+- Point.all.each do |point|
+  div.marker data-id="#{point.id}" data-name="#{point.name}" data-lat="#{point.latitude}" data-lng="#{point.longitude}"
 script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAPS_API"]}&callback=initMap"
