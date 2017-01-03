@@ -1,11 +1,11 @@
 # encoding: utf-8
 
-class CategoryImageUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
   if Rails.env.production?
     include Cloudinary::CarrierWave
 
-    process convert: "png"
-    process tags: ["category_picture"]
+    process convert: "jpg"
+    process tags: ["picture"]
   else
     include CarrierWave::MiniMagick
 
@@ -16,5 +16,9 @@ class CategoryImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process resize_to_fill: [32, 32]
+  process resize_to_fill: [1024, 768]
+
+  version :small do
+    process resize_to_fill: [150, 150]
+  end
 end

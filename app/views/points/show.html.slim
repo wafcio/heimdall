@@ -18,4 +18,28 @@
   dl
     #simple-map data-lat=point.latitude data-lng=point.longitude
 
+  - if point.images.exists?
+    table.table.table-striped
+      thead
+        tr
+          th Photo
+          th
+            .pull-right Action
+      tbody
+        - point.images.each do |image|
+          tr
+            td= image_tag(image.file.small.url)
+            td
+              .pull-right
+                = link_to "Delete", image_path(image), class: "btn btn-danger", method: :delete
+
+  = form_for point.images.new do |f|
+    = f.hidden_field :point_id
+    .form-group
+      = f.label :file
+      = f.hidden_field :file_cache
+      = f.file_field :file, class: "form-control"
+    .form-group
+      = f.submit "Add photo", class: "btn btn-primary btn-block"
+
 script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAPS_API"]}&callback=initSimpleMap" async="" defer=""

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :categories, except: [:show]
   resources :points
+  resources :images, only: [:create, :destroy]
 
   mount PostgresqlLoStreamer::Engine => "/category_image"
 
