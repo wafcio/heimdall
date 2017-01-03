@@ -1,11 +1,14 @@
 doctype html
 html
   head
-    title Heimdall
+    title= website_title
     = csrf_meta_tags
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload"
     = javascript_include_tag "application", "data-turbolinks-track": "reload"
     meta name="baseUrl" content="#{request.protocol + request.host_with_port}"
+    meta name="mapLatitude" content="#{ENV.fetch("MAP_LATITUDE")}"
+    meta name="mapLongitude" content="#{ENV.fetch("MAP_LONGITUDE")}"
+    meta name="mapZoom" content="#{ENV.fetch("MAP_ZOOM")}"
   body
     = render "shared/nav"
     = yield

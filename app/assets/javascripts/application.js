@@ -22,8 +22,11 @@ function initMap() {
   resizeMap();
 
   var map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 6,
-    center: {lat: 52.05, lng: 19.45}
+    zoom: parseInt($("meta[name=mapZoom]").attr("content")),
+    center: {
+      lat: parseFloat($("meta[name=mapLatitude]").attr("content")),
+      lng: parseFloat($("meta[name=mapLongitude]").attr("content")),
+    }
   });
 
   var markers = [];
