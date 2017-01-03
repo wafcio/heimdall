@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require slimbox2.min
 //= require_tree .
 
 function initMap() {
@@ -34,23 +35,34 @@ function initMap() {
   $(".marker").each(function() {
     var node = $(this);
 
-    var marker_data = {
+    var markerData = {
       position: { lat: parseFloat(node.attr("data-lat")), lng: parseFloat(node.attr("data-lng")) },
       map: map,
       title: node.attr("data-name")
     };
 
     if (node.attr("data-marker") != "default")
-      marker_data["icon"] = $("meta[name=baseUrl]").attr("content") + node.attr("data-marker");
+      markerData["icon"] = $("meta[name=baseUrl]").attr("content") + node.attr("data-marker");
 
-    var marker = new google.maps.Marker(marker_data);
+    var marker = new google.maps.Marker(markerData);
+
+    var content = "<strong style=\"border-bottom: 1px solid #eeeeee;\">" + node.attr("data-name") + "</strong><br>";
+    $(".marker-image[data-point-id=" + node.attr("data-id") + "]").each(function(){
+      var imageNode = $(this);
+      content += "<a href=\"" + $("meta[name=baseUrl]").attr("content") + imageNode.attr("data-file") +"\" rel=\"lightbox\"><img src=\"" + $("meta[name=baseUrl]").attr("content") + imageNode.attr("data-file-small") +"\" /></a>"
+    });
 
     var infowindow = new google.maps.InfoWindow({
-      content: "<strong style=\"border-bottom: 1px solid #eeeeee;\">" + node.attr("data-name") + "</strong>"
+      content: content
     });
 
     marker.addListener("click", function() {
       infowindow.open(map, marker);
+
+      // bind lightbox for new DOM
+      $("a[rel^='lightbox']").slimbox({/* Put custom options here */}, null, function(el) {
+        return (this == el) || ((this.rel.length > 8) && (this.rel == el.rel));
+      });
     });
 
     markers.push(marker);

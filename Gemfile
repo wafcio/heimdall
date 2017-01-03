@@ -38,6 +38,7 @@ gem "interactor-rails"
 gem "omniauth-google-oauth2"
 gem "underscore-rails"
 gem "cloudinary"
+gem "slimbox2-rails"
 
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
