@@ -31,11 +31,16 @@ function initMap() {
   $(".marker").each(function() {
     var node = $(this);
 
-    var marker = new google.maps.Marker({
+    var marker_data = {
       position: { lat: parseFloat(node.attr("data-lat")), lng: parseFloat(node.attr("data-lng")) },
       map: map,
       title: node.attr("data-name")
-    });
+    };
+
+    if (node.attr("data-marker") != "default")
+      marker_data["icon"] = $("meta[name=baseUrl]").attr("content") + node.attr("data-marker");
+
+    var marker = new google.maps.Marker(marker_data);
 
     var infowindow = new google.maps.InfoWindow({
       content: "<strong style=\"border-bottom: 1px solid #eeeeee;\">" + node.attr("data-name") + "</strong>"

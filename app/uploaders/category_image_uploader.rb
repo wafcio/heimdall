@@ -12,5 +12,5 @@ class CategoryImageUploader < CarrierWave::Uploader::Base
     storage :postgresql_lo
   end
 
-  process resize_to_fill: [256, 256]
+  process resize_to_fill: [32, 32]
 end
