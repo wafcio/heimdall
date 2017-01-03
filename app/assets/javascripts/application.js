@@ -19,7 +19,7 @@
 //= require_tree .
 
 function initMap() {
-  $("#map").css({height: window.innerHeight - 51});
+  resizeMap();
 
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 6,
@@ -48,3 +48,11 @@ function initMap() {
     markers.push(marker);
   });
 }
+
+function resizeMap() {
+  $("#map").css({height: window.innerHeight - 51});
+}
+
+$(window).resize(function(){
+  resizeMap()
+});
