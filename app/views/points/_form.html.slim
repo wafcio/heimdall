@@ -1,5 +1,9 @@
 = form_for point do |f|
   .form-group
+    = f.label :category_id
+    = f.select :category_id, Category.sort_by_name.map { |category| [category.name, category.id] }, { include_blank: true }, class: "form-control"
+
+  .form-group
     = f.label :name
     = f.text_field :name, class: "form-control"
     - if point.errors[:name].any?

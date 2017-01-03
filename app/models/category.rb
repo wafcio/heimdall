@@ -3,6 +3,8 @@ class Category < ApplicationRecord
 
   mount_uploader :image, CategoryImageUploader
 
+  has_many :points
+
   scope :sort_by_name, -> { order(:name) }
 
   validates :name, presence: true

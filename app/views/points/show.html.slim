@@ -4,6 +4,14 @@
     = link_to "Back", points_path, class: "btn btn-default btn-sm"
 
   dl
+    dt  Category
+    dl
+      - if point.category
+        = point.category.name
+      - else
+        | -
+
+  dl
     dt  Name
     dl = point.name
 
