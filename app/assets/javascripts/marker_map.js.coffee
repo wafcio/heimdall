@@ -44,7 +44,7 @@ class MarkerMap
         if status == "OK"
           if results[0]
             @clearAddressFields()
-            @updateAddressFields(results[0], lat, lng)
+            @updateAddressFields(results[0], latlng.lat, latlng.lng)
           else
             window.alert "No address found"
         else
