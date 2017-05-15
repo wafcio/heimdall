@@ -42,7 +42,7 @@ function initMap() {
     };
 
     if (node.attr("data-marker") != "default")
-      if (node.attr("data-marker").startsWith("http")) {
+      if (node.attr("data-marker").indexOf("http") == 0) {
         markerData["icon"] = node.attr("data-marker");
       } else {
         markerData["icon"] = $("meta[name=baseUrl]").attr("content") + node.attr("data-marker");
@@ -53,12 +53,12 @@ function initMap() {
     var content = "<strong style=\"border-bottom: 1px solid #eeeeee;\">" + node.attr("data-name") + "</strong><br>";
     $(".marker-image[data-point-id=" + node.attr("data-id") + "]").each(function(){
       var imageNode = $(this), bigImageUrl, smallImageUrl;
-      if (imageNode.attr("data-file").startsWith("http")) {
+      if (imageNode.attr("data-file").indexOf("http") == 0) {
         bigImageUrl = imageNode.attr("data-file");
       } else {
         bigImageUrl = $("meta[name=baseUrl]").attr("content") + imageNode.attr("data-file");
       }
-      if (imageNode.attr("data-file-small").startsWith("http")) {
+      if (imageNode.attr("data-file-small").indexOf("http") == 0) {
         smallImageUrl = imageNode.attr("data-file-small");
       } else {
         smallImageUrl = $("meta[name=baseUrl]").attr("content") + imageNode.attr("data-file-small");
