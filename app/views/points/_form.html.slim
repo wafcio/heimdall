@@ -11,6 +11,13 @@
         p.help-block= point.errors[:name].first
 
   .form-group
+    = f.label :description
+    = f.text_area :description, class: "form-control", rows: 5, maxlength: 1000
+    - if point.errors[:description].any?
+      .has-error
+        p.help-block= point.errors[:description].first
+
+  .form-group
     input#autocomplete
     #map
 

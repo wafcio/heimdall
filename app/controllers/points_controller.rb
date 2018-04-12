@@ -56,6 +56,9 @@ class PointsController < ApplicationController
 
   def point_params
     params.fetch(:point, {}).
-      permit(:category_id, :name, :latitude, :longitude, :street_name, :street_number, :zip_code, :city, :state, :country)
+      permit(
+        :category_id, :name, :description, :latitude, :longitude, :street_name,
+        :street_number, :zip_code, :city, :state, :country
+      )
   end
 end

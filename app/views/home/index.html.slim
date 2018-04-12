@@ -1,6 +1,6 @@
 div#map style="width: auto; height: 400px;"
 - points.each do |point|
-  div.marker data-id="#{point.id}" data-name="#{point.name}" data-lat="#{point.latitude}" data-lng="#{point.longitude}" data-marker="#{point.category ? point.category.image_url : "default"}"
+  div.marker data-id="#{point.id}" data-name="#{point.name}" data-description="#{formatted_description(point)}" data-lat="#{point.latitude}" data-lng="#{point.longitude}" data-marker="#{point.category ? point.category.image_url : "default"}"
   - point.images.each do |image|
     div.marker-image data-id="#{image.id}" data-point-id="#{image.point_id}" data-file="#{image.file_url}" data-file-small="#{image.file.small.url}"
 script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAPS_API"]}&callback=initMap"
