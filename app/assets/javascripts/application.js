@@ -50,7 +50,8 @@ function initMap() {
 
     var marker = new google.maps.Marker(markerData);
 
-    var content = "<strong style=\"border-bottom: 1px solid #eeeeee;\">" + node.attr("data-name") + "</strong><br>";
+    var content = "<strong style=\"border-bottom: 1px solid #eeeeee;\">" + node.attr("data-name") + "</strong><br><br>";
+    content += "<p>" + node.attr("data-description") + "</p>"
     $(".marker-image[data-point-id=" + node.attr("data-id") + "]").each(function(){
       var imageNode = $(this), bigImageUrl, smallImageUrl;
       if (imageNode.attr("data-file").indexOf("http") == 0) {

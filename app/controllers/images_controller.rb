@@ -4,13 +4,13 @@ class ImagesController < ApplicationController
   def create
     image = Image.new(image_params)
     image.save
-    redirect_to :back
+    redirect_to point_path(image.point)
   end
 
   def destroy
     image = Image.find(params[:id])
     image.destroy
-    redirect_to :back
+    redirect_to point_path(image.point)
   end
 
   private
