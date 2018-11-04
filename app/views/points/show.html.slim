@@ -32,7 +32,9 @@
       tbody
         - point.images.each do |image|
           tr
-            td= image_tag(image.file.small.url)
+            td
+              - if image.file
+                = image_tag(image.file.small.url)
             td
               .pull-right
                 = link_to "Delete", image_path(image), class: "btn btn-danger", method: :delete
