@@ -1,6 +1,6 @@
 module ApplicationHelper
   def website_title
-    ENV["WEBSITE_TITLE"].present? ? ENV["WEBSITE_TITLE"] : "Heimdall"
+    ENV["WEBSITE_TITLE"].presence || "Heimdall"
   end
 
   def formatted_description(point)

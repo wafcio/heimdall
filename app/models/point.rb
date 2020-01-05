@@ -1,6 +1,6 @@
 class Point < ApplicationRecord
   belongs_to :category
-  has_many :images
+  has_many :images, dependent: :destroy
 
   scope :by_name, -> { order(:name) }
 

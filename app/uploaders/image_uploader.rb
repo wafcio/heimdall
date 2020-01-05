@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class ImageUploader < CarrierWave::Uploader::Base
   if Rails.env.production?
     include Cloudinary::CarrierWave
