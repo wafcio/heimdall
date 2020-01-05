@@ -150,7 +150,7 @@ GEM
     postgresql_lo_streamer (1.1.0)
       rails (>= 4.0)
     powerpack (0.1.1)
-    puma (3.6.2)
+    puma (3.12.2)
     rack (2.0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -284,4 +284,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.16.1
+   1.17.2
